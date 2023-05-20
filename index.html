@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+button {
+  width: 40%;
+  height: 50px;
+  font-size: 18px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+</style>
+</head>
+<body>
+
+<h1>Моя програма вправ</h1>
+
+<img id="exerciseGif" src="" alt="Exercise gif">
+
+<div id="buttonContainer">
+  <button onclick="prevExercise()">Попередня вправа</button>
+  <button onclick="nextExercise()">Наступна вправа</button>
+</div>
+
+<script>
+let currentExercise = 0;
+
+let exercises = [
+  // вставте власні URL-адреси гіфок
+  { gif: '01.gif' },
+  { gif: '02.gif' },
+  { gif: '03.gif' },
+  { gif: '04.gif' },
+  { gif: '05.gif' },
+  { gif: '06.gif' },
+  { gif: '07.gif' },
+  { gif: '08.gif' },
+  { gif: '09.gif' },
+  { gif: '10.gif' },
+  { gif: '11.gif' },
+  { gif: '12.gif' },
+  { gif: '13.gif' },
+  { gif: '14.gif' },
+  { gif: '15.gif' },
+  { gif: '16.gif' },
+  { gif: '17.gif' },
+  { gif: '18.gif' },
+  { gif: '19.gif' },
+  { gif: '20.gif' },
+  { gif: '21.gif' },
+  { gif: '22.gif' },
+  { gif: '23.gif' },
+  { gif: '24.gif' },
+  { gif: '25.gif' }
+];
+
+window.onload = function() {
+  updateExercise();
+}
+
+function nextExercise() {
+  currentExercise = (currentExercise + 1) % exercises.length;
+  updateExercise();
+}
+
+function prevExercise() {
+  currentExercise = (currentExercise - 1 + exercises.length) % exercises.length;
+  updateExercise();
+}
+
+function updateExercise() {
+  document.getElementById("exerciseGif").src = exercises[currentExercise].gif;
+}
+</script>
+
+</body>
+</html>
